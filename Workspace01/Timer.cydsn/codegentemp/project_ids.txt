@@ -1,9 +1,0 @@
-D:\job\MCU\Others\PSoC_train\Workspace01\GPIO.cydsn\GPIO.cyprj|cacf3c08-7f40-4f4a-930a-6a7fce0d958f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ba3ac328-7585-4885-8c8e-744c0e4cd9cb
-C:\Users\lucaschen\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|fd42cab8-fc34-4142-84ac-28523fe0f057
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|aee6a8f2-b85b-4136-afa1-21ebc6194e70
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|649e98c0-883b-4ee8-ad21-690d9f6ad84d
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|189a6097-cb7c-4306-99f4-4f2524afd229
-D:\job\MCU\Others\PSoC_train\Workspace01\Timer.cydsn\Timer.cyprj|80457bb9-aa97-43d9-801c-0dda436f3b73
-D:\job\MCU\Others\PSoC_train\Workspace01\Key_Interrupt.cydsn\Key_Interrupt.cyprj|4ad993e0-4524-440b-9334-c7d51e69c773
-D:\job\MCU\Others\PSoC_train\Workspace01\I2C.cydsn\I2C.cyprj|320d5ba8-9313-496f-9027-bb17ea86e36b

@@ -1,7 +1,0 @@
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|9c718a1c-9206-4561-a67e-f6f8d80e972a
-C:\Users\User\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|ba1bb7b2-2a66-4ee9-8053-50ee88f8f4bc
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|308b3bd1-91ed-4aec-95f8-f112b932eaa4
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|aa55b1d7-673f-47d5-ad30-d51ef59dae0a
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6ff0c3ac-18c7-41f0-b4ef-965c31d158f4
-D:\Projects\PSoC\Workspace02\USB_HID.cydsn\USB_HID.cyprj|f54aa7c4-668f-4f9c-ab77-d54d29414a04
-D:\Projects\PSoC\Workspace02\Cap_Sense.cydsn\Cap_Sense.cyprj|07fea7ef-5ee5-4798-b4de-6233e4b93b37
