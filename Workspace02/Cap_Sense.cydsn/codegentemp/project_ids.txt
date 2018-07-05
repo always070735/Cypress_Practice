@@ -1,0 +1,7 @@
+D:\job\MCU\Others\PSoC_train\Workspace02\Cap_Sense.cydsn\Cap_Sense.cyprj|cb415a61-b8c0-49f2-a765-71e6d06247c9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e60ef91c-7f1e-4f04-bd0c-08f8cbd2fc3c
+C:\Users\lucaschen\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|f0db3681-58b2-42bd-b10e-396b7fb3706c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8405940c-ea0c-4c58-be82-9e1dd6ef81fe
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5f55dad2-454b-4766-b2ce-a51fecbfd634
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|08adb689-18f5-42ae-9fb4-76f7b9dfc4e4
+D:\job\MCU\Others\PSoC_train\Workspace02\USB_HID.cydsn\USB_HID.cyprj|8041864a-715e-46ba-841d-1a1297c3be69

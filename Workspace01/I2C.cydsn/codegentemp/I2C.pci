@@ -1,0 +1,14 @@
+# I2C
+# 2018-06-15 02:35:11Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\I2C_Slave:sda(0)\" iocell 4 1
+set_io "\I2C_Slave:scl(0)\" iocell 4 0
+set_io "LED(0)" iocell 5 2
+set_io "\I2C_Master:sda(0)\" iocell 2 1
+set_io "\I2C_Master:scl(0)\" iocell 2 0
+set_io "Tx_1(0)" iocell 3 1

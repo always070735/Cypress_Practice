@@ -50,3 +50,16 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#Cypress
+codegentemp/*
+CortexM0/*
+Export/*
+*.cycdx
+*.cyfit
+*.LucasChen
+*.User
+*.log
+*.rpt
+*.svd
+*.html

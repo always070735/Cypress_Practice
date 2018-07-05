@@ -1,0 +1,12 @@
+dont_use_io iocell 3 2
+dont_use_io iocell 3 3
+set_location "\USBFS:lo_int\" interrupt -1 -1 31
+set_io "\USBFS:Dm(0)\" iocell 13 1
+set_location "\USBFS:high_int\" interrupt -1 -1 30
+set_io "\USBFS:Dp(0)\" iocell 13 0
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_location "\USBFS:dp_int\" interrupt -1 -1 5
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_location "\USBFS:Dp\" logicalport -1 -1 13
+set_location "\USBFS:med_int\" interrupt -1 -1 0
+set_location "\USBFS:cy_m0s8_usb\" p4usbcell -1 -1 0

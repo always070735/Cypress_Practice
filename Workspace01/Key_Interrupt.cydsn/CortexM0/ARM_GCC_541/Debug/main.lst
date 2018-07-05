@@ -1,0 +1,727 @@
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.KEY_ISR_Function,"ax",%progbits
+  20              		.align	2
+  21              		.global	KEY_ISR_Function
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	KEY_ISR_Function, %function
+  25              	KEY_ISR_Function:
+  26              	.LFB35:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** CY_ISR_PROTO(KEY_ISR_Function);
+  15:main.c        **** uint8 flag=0;
+  16:main.c        **** 
+  17:main.c        **** int main(void)
+  18:main.c        **** {
+  19:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  20:main.c        ****     
+  21:main.c        ****     KEY_ISR_StartEx(KEY_ISR_Function);
+  22:main.c        **** 
+  23:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  24:main.c        **** 
+  25:main.c        ****     for(;;)
+  26:main.c        ****     {
+  27:main.c        ****         /* Place your application code here. */
+  28:main.c        ****         if(flag==1)
+  29:main.c        ****         {            
+  30:main.c        ****             CyDelayUs(10);            
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 2
+
+
+  31:main.c        ****             if(SW2_Read()==1)
+  32:main.c        ****             {
+  33:main.c        ****                 LED_R_Write(~LED_R_Read());
+  34:main.c        ****             }
+  35:main.c        ****             flag=0;
+  36:main.c        ****         }
+  37:main.c        ****     }
+  38:main.c        **** }
+  39:main.c        **** 
+  40:main.c        **** CY_ISR(KEY_ISR_Function)
+  41:main.c        **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  42:main.c        ****     flag=1;
+  36              		.loc 1 42 0
+  37 0002 0122     		movs	r2, #1
+  38 0004 024B     		ldr	r3, .L2
+  39 0006 1A70     		strb	r2, [r3]
+  43:main.c        ****     SW2_ClearInterrupt();
+  40              		.loc 1 43 0
+  41 0008 FFF7FEFF 		bl	SW2_ClearInterrupt
+  42              	.LVL0:
+  44:main.c        **** }
+  43              		.loc 1 44 0
+  44              		@ sp needed
+  45 000c 10BD     		pop	{r4, pc}
+  46              	.L3:
+  47 000e C046     		.align	2
+  48              	.L2:
+  49 0010 00000000 		.word	.LANCHOR0
+  50              		.cfi_endproc
+  51              	.LFE35:
+  52              		.size	KEY_ISR_Function, .-KEY_ISR_Function
+  53              		.section	.text.main,"ax",%progbits
+  54              		.align	2
+  55              		.global	main
+  56              		.code	16
+  57              		.thumb_func
+  58              		.type	main, %function
+  59              	main:
+  60              	.LFB34:
+  18:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  61              		.loc 1 18 0
+  62              		.cfi_startproc
+  63              		@ Volatile: function does not return.
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 10B5     		push	{r4, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 4, -8
+  69              		.cfi_offset 14, -4
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 3
+
+
+  19:main.c        ****     
+  70              		.loc 1 19 0
+  71              		.syntax divided
+  72              	@ 19 "main.c" 1
+  73 0002 62B6     		CPSIE   i
+  74              	@ 0 "" 2
+  21:main.c        **** 
+  75              		.loc 1 21 0
+  76              		.thumb
+  77              		.syntax unified
+  78 0004 0B48     		ldr	r0, .L8
+  79 0006 FFF7FEFF 		bl	KEY_ISR_StartEx
+  80              	.LVL1:
+  81              	.L5:
+  28:main.c        ****         {            
+  82              		.loc 1 28 0
+  83 000a 0B4B     		ldr	r3, .L8+4
+  84 000c 1B78     		ldrb	r3, [r3]
+  85 000e 012B     		cmp	r3, #1
+  86 0010 FBD1     		bne	.L5
+  30:main.c        ****             if(SW2_Read()==1)
+  87              		.loc 1 30 0
+  88 0012 0A20     		movs	r0, #10
+  89 0014 FFF7FEFF 		bl	CyDelayUs
+  90              	.LVL2:
+  31:main.c        ****             {
+  91              		.loc 1 31 0
+  92 0018 FFF7FEFF 		bl	SW2_Read
+  93              	.LVL3:
+  94 001c 0128     		cmp	r0, #1
+  95 001e 05D1     		bne	.L6
+  33:main.c        ****             }
+  96              		.loc 1 33 0
+  97 0020 FFF7FEFF 		bl	LED_R_Read
+  98              	.LVL4:
+  99 0024 C043     		mvns	r0, r0
+ 100 0026 C0B2     		uxtb	r0, r0
+ 101 0028 FFF7FEFF 		bl	LED_R_Write
+ 102              	.LVL5:
+ 103              	.L6:
+  35:main.c        ****         }
+ 104              		.loc 1 35 0
+ 105 002c 0022     		movs	r2, #0
+ 106 002e 024B     		ldr	r3, .L8+4
+ 107 0030 1A70     		strb	r2, [r3]
+ 108 0032 EAE7     		b	.L5
+ 109              	.L9:
+ 110              		.align	2
+ 111              	.L8:
+ 112 0034 00000000 		.word	KEY_ISR_Function
+ 113 0038 00000000 		.word	.LANCHOR0
+ 114              		.cfi_endproc
+ 115              	.LFE34:
+ 116              		.size	main, .-main
+ 117              		.global	flag
+ 118              		.bss
+ 119              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 4
+
+
+ 120              		.type	flag, %object
+ 121              		.size	flag, 1
+ 122              	flag:
+ 123 0000 00       		.space	1
+ 124              		.text
+ 125              	.Letext0:
+ 126              		.file 2 "Generated_Source\\PSoC4/SW2.h"
+ 127              		.file 3 "Generated_Source\\PSoC4/KEY_ISR.h"
+ 128              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 129              		.file 5 "Generated_Source\\PSoC4/LED_R.h"
+ 130              		.file 6 "Generated_Source\\PSoC4/cytypes.h"
+ 131              		.section	.debug_info,"",%progbits
+ 132              	.Ldebug_info0:
+ 133 0000 68010000 		.4byte	0x168
+ 134 0004 0400     		.2byte	0x4
+ 135 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 136 000a 04       		.byte	0x4
+ 137 000b 01       		.uleb128 0x1
+ 138 000c C1000000 		.4byte	.LASF20
+ 139 0010 0C       		.byte	0xc
+ 140 0011 1B000000 		.4byte	.LASF21
+ 141 0015 6E010000 		.4byte	.LASF22
+ 142 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 143 001d 00000000 		.4byte	0
+ 144 0021 00000000 		.4byte	.Ldebug_line0
+ 145 0025 02       		.uleb128 0x2
+ 146 0026 01       		.byte	0x1
+ 147 0027 06       		.byte	0x6
+ 148 0028 62010000 		.4byte	.LASF0
+ 149 002c 02       		.uleb128 0x2
+ 150 002d 01       		.byte	0x1
+ 151 002e 08       		.byte	0x8
+ 152 002f 9E000000 		.4byte	.LASF1
+ 153 0033 02       		.uleb128 0x2
+ 154 0034 02       		.byte	0x2
+ 155 0035 05       		.byte	0x5
+ 156 0036 BB010000 		.4byte	.LASF2
+ 157 003a 02       		.uleb128 0x2
+ 158 003b 02       		.byte	0x2
+ 159 003c 07       		.byte	0x7
+ 160 003d 4F010000 		.4byte	.LASF3
+ 161 0041 02       		.uleb128 0x2
+ 162 0042 04       		.byte	0x4
+ 163 0043 05       		.byte	0x5
+ 164 0044 B1000000 		.4byte	.LASF4
+ 165 0048 02       		.uleb128 0x2
+ 166 0049 04       		.byte	0x4
+ 167 004a 07       		.byte	0x7
+ 168 004b 51000000 		.4byte	.LASF5
+ 169 004f 02       		.uleb128 0x2
+ 170 0050 08       		.byte	0x8
+ 171 0051 05       		.byte	0x5
+ 172 0052 00000000 		.4byte	.LASF6
+ 173 0056 02       		.uleb128 0x2
+ 174 0057 08       		.byte	0x8
+ 175 0058 07       		.byte	0x7
+ 176 0059 63000000 		.4byte	.LASF7
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 5
+
+
+ 177 005d 03       		.uleb128 0x3
+ 178 005e 04       		.byte	0x4
+ 179 005f 05       		.byte	0x5
+ 180 0060 696E7400 		.ascii	"int\000"
+ 181 0064 02       		.uleb128 0x2
+ 182 0065 04       		.byte	0x4
+ 183 0066 07       		.byte	0x7
+ 184 0067 0E000000 		.4byte	.LASF8
+ 185 006b 04       		.uleb128 0x4
+ 186 006c 4B000000 		.4byte	.LASF23
+ 187 0070 06       		.byte	0x6
+ 188 0071 E401     		.2byte	0x1e4
+ 189 0073 2C000000 		.4byte	0x2c
+ 190 0077 02       		.uleb128 0x2
+ 191 0078 04       		.byte	0x4
+ 192 0079 04       		.byte	0x4
+ 193 007a 7A000000 		.4byte	.LASF9
+ 194 007e 02       		.uleb128 0x2
+ 195 007f 08       		.byte	0x8
+ 196 0080 04       		.byte	0x4
+ 197 0081 BA000000 		.4byte	.LASF10
+ 198 0085 02       		.uleb128 0x2
+ 199 0086 01       		.byte	0x1
+ 200 0087 08       		.byte	0x8
+ 201 0088 AC000000 		.4byte	.LASF11
+ 202 008c 02       		.uleb128 0x2
+ 203 008d 04       		.byte	0x4
+ 204 008e 07       		.byte	0x7
+ 205 008f D6010000 		.4byte	.LASF12
+ 206 0093 02       		.uleb128 0x2
+ 207 0094 08       		.byte	0x8
+ 208 0095 04       		.byte	0x4
+ 209 0096 9F010000 		.4byte	.LASF13
+ 210 009a 05       		.uleb128 0x5
+ 211 009b 3A000000 		.4byte	.LASF24
+ 212 009f 01       		.byte	0x1
+ 213 00a0 28       		.byte	0x28
+ 214 00a1 00000000 		.4byte	.LFB35
+ 215 00a5 14000000 		.4byte	.LFE35-.LFB35
+ 216 00a9 01       		.uleb128 0x1
+ 217 00aa 9C       		.byte	0x9c
+ 218 00ab B9000000 		.4byte	0xb9
+ 219 00af 06       		.uleb128 0x6
+ 220 00b0 0C000000 		.4byte	.LVL0
+ 221 00b4 29010000 		.4byte	0x129
+ 222 00b8 00       		.byte	0
+ 223 00b9 07       		.uleb128 0x7
+ 224 00ba 2B000000 		.4byte	.LASF25
+ 225 00be 01       		.byte	0x1
+ 226 00bf 11       		.byte	0x11
+ 227 00c0 5D000000 		.4byte	0x5d
+ 228 00c4 00000000 		.4byte	.LFB34
+ 229 00c8 3C000000 		.4byte	.LFE34-.LFB34
+ 230 00cc 01       		.uleb128 0x1
+ 231 00cd 9C       		.byte	0x9c
+ 232 00ce 18010000 		.4byte	0x118
+ 233 00d2 08       		.uleb128 0x8
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 6
+
+
+ 234 00d3 0A000000 		.4byte	.LVL1
+ 235 00d7 34010000 		.4byte	0x134
+ 236 00db E9000000 		.4byte	0xe9
+ 237 00df 09       		.uleb128 0x9
+ 238 00e0 01       		.uleb128 0x1
+ 239 00e1 50       		.byte	0x50
+ 240 00e2 05       		.uleb128 0x5
+ 241 00e3 03       		.byte	0x3
+ 242 00e4 00000000 		.4byte	KEY_ISR_Function
+ 243 00e8 00       		.byte	0
+ 244 00e9 08       		.uleb128 0x8
+ 245 00ea 18000000 		.4byte	.LVL2
+ 246 00ee 3F010000 		.4byte	0x13f
+ 247 00f2 FC000000 		.4byte	0xfc
+ 248 00f6 09       		.uleb128 0x9
+ 249 00f7 01       		.uleb128 0x1
+ 250 00f8 50       		.byte	0x50
+ 251 00f9 01       		.uleb128 0x1
+ 252 00fa 3A       		.byte	0x3a
+ 253 00fb 00       		.byte	0
+ 254 00fc 06       		.uleb128 0x6
+ 255 00fd 1C000000 		.4byte	.LVL3
+ 256 0101 4A010000 		.4byte	0x14a
+ 257 0105 06       		.uleb128 0x6
+ 258 0106 24000000 		.4byte	.LVL4
+ 259 010a 55010000 		.4byte	0x155
+ 260 010e 06       		.uleb128 0x6
+ 261 010f 2C000000 		.4byte	.LVL5
+ 262 0113 60010000 		.4byte	0x160
+ 263 0117 00       		.byte	0
+ 264 0118 0A       		.uleb128 0xa
+ 265 0119 D1010000 		.4byte	.LASF26
+ 266 011d 01       		.byte	0x1
+ 267 011e 0F       		.byte	0xf
+ 268 011f 6B000000 		.4byte	0x6b
+ 269 0123 05       		.uleb128 0x5
+ 270 0124 03       		.byte	0x3
+ 271 0125 00000000 		.4byte	flag
+ 272 0129 0B       		.uleb128 0xb
+ 273 012a 80000000 		.4byte	.LASF14
+ 274 012e 80000000 		.4byte	.LASF14
+ 275 0132 02       		.byte	0x2
+ 276 0133 39       		.byte	0x39
+ 277 0134 0B       		.uleb128 0xb
+ 278 0135 AB010000 		.4byte	.LASF15
+ 279 0139 AB010000 		.4byte	.LASF15
+ 280 013d 03       		.byte	0x3
+ 281 013e 18       		.byte	0x18
+ 282 013f 0B       		.uleb128 0xb
+ 283 0140 30000000 		.4byte	.LASF16
+ 284 0144 30000000 		.4byte	.LASF16
+ 285 0148 04       		.byte	0x4
+ 286 0149 DA       		.byte	0xda
+ 287 014a 0B       		.uleb128 0xb
+ 288 014b 22000000 		.4byte	.LASF17
+ 289 014f 22000000 		.4byte	.LASF17
+ 290 0153 02       		.byte	0x2
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 7
+
+
+ 291 0154 32       		.byte	0x32
+ 292 0155 0B       		.uleb128 0xb
+ 293 0156 93000000 		.4byte	.LASF18
+ 294 015a 93000000 		.4byte	.LASF18
+ 295 015e 05       		.byte	0x5
+ 296 015f 32       		.byte	0x32
+ 297 0160 0B       		.uleb128 0xb
+ 298 0161 C5010000 		.4byte	.LASF19
+ 299 0165 C5010000 		.4byte	.LASF19
+ 300 0169 05       		.byte	0x5
+ 301 016a 33       		.byte	0x33
+ 302 016b 00       		.byte	0
+ 303              		.section	.debug_abbrev,"",%progbits
+ 304              	.Ldebug_abbrev0:
+ 305 0000 01       		.uleb128 0x1
+ 306 0001 11       		.uleb128 0x11
+ 307 0002 01       		.byte	0x1
+ 308 0003 25       		.uleb128 0x25
+ 309 0004 0E       		.uleb128 0xe
+ 310 0005 13       		.uleb128 0x13
+ 311 0006 0B       		.uleb128 0xb
+ 312 0007 03       		.uleb128 0x3
+ 313 0008 0E       		.uleb128 0xe
+ 314 0009 1B       		.uleb128 0x1b
+ 315 000a 0E       		.uleb128 0xe
+ 316 000b 55       		.uleb128 0x55
+ 317 000c 17       		.uleb128 0x17
+ 318 000d 11       		.uleb128 0x11
+ 319 000e 01       		.uleb128 0x1
+ 320 000f 10       		.uleb128 0x10
+ 321 0010 17       		.uleb128 0x17
+ 322 0011 00       		.byte	0
+ 323 0012 00       		.byte	0
+ 324 0013 02       		.uleb128 0x2
+ 325 0014 24       		.uleb128 0x24
+ 326 0015 00       		.byte	0
+ 327 0016 0B       		.uleb128 0xb
+ 328 0017 0B       		.uleb128 0xb
+ 329 0018 3E       		.uleb128 0x3e
+ 330 0019 0B       		.uleb128 0xb
+ 331 001a 03       		.uleb128 0x3
+ 332 001b 0E       		.uleb128 0xe
+ 333 001c 00       		.byte	0
+ 334 001d 00       		.byte	0
+ 335 001e 03       		.uleb128 0x3
+ 336 001f 24       		.uleb128 0x24
+ 337 0020 00       		.byte	0
+ 338 0021 0B       		.uleb128 0xb
+ 339 0022 0B       		.uleb128 0xb
+ 340 0023 3E       		.uleb128 0x3e
+ 341 0024 0B       		.uleb128 0xb
+ 342 0025 03       		.uleb128 0x3
+ 343 0026 08       		.uleb128 0x8
+ 344 0027 00       		.byte	0
+ 345 0028 00       		.byte	0
+ 346 0029 04       		.uleb128 0x4
+ 347 002a 16       		.uleb128 0x16
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 8
+
+
+ 348 002b 00       		.byte	0
+ 349 002c 03       		.uleb128 0x3
+ 350 002d 0E       		.uleb128 0xe
+ 351 002e 3A       		.uleb128 0x3a
+ 352 002f 0B       		.uleb128 0xb
+ 353 0030 3B       		.uleb128 0x3b
+ 354 0031 05       		.uleb128 0x5
+ 355 0032 49       		.uleb128 0x49
+ 356 0033 13       		.uleb128 0x13
+ 357 0034 00       		.byte	0
+ 358 0035 00       		.byte	0
+ 359 0036 05       		.uleb128 0x5
+ 360 0037 2E       		.uleb128 0x2e
+ 361 0038 01       		.byte	0x1
+ 362 0039 3F       		.uleb128 0x3f
+ 363 003a 19       		.uleb128 0x19
+ 364 003b 03       		.uleb128 0x3
+ 365 003c 0E       		.uleb128 0xe
+ 366 003d 3A       		.uleb128 0x3a
+ 367 003e 0B       		.uleb128 0xb
+ 368 003f 3B       		.uleb128 0x3b
+ 369 0040 0B       		.uleb128 0xb
+ 370 0041 27       		.uleb128 0x27
+ 371 0042 19       		.uleb128 0x19
+ 372 0043 11       		.uleb128 0x11
+ 373 0044 01       		.uleb128 0x1
+ 374 0045 12       		.uleb128 0x12
+ 375 0046 06       		.uleb128 0x6
+ 376 0047 40       		.uleb128 0x40
+ 377 0048 18       		.uleb128 0x18
+ 378 0049 9742     		.uleb128 0x2117
+ 379 004b 19       		.uleb128 0x19
+ 380 004c 01       		.uleb128 0x1
+ 381 004d 13       		.uleb128 0x13
+ 382 004e 00       		.byte	0
+ 383 004f 00       		.byte	0
+ 384 0050 06       		.uleb128 0x6
+ 385 0051 898201   		.uleb128 0x4109
+ 386 0054 00       		.byte	0
+ 387 0055 11       		.uleb128 0x11
+ 388 0056 01       		.uleb128 0x1
+ 389 0057 31       		.uleb128 0x31
+ 390 0058 13       		.uleb128 0x13
+ 391 0059 00       		.byte	0
+ 392 005a 00       		.byte	0
+ 393 005b 07       		.uleb128 0x7
+ 394 005c 2E       		.uleb128 0x2e
+ 395 005d 01       		.byte	0x1
+ 396 005e 3F       		.uleb128 0x3f
+ 397 005f 19       		.uleb128 0x19
+ 398 0060 03       		.uleb128 0x3
+ 399 0061 0E       		.uleb128 0xe
+ 400 0062 3A       		.uleb128 0x3a
+ 401 0063 0B       		.uleb128 0xb
+ 402 0064 3B       		.uleb128 0x3b
+ 403 0065 0B       		.uleb128 0xb
+ 404 0066 27       		.uleb128 0x27
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 9
+
+
+ 405 0067 19       		.uleb128 0x19
+ 406 0068 49       		.uleb128 0x49
+ 407 0069 13       		.uleb128 0x13
+ 408 006a 8701     		.uleb128 0x87
+ 409 006c 19       		.uleb128 0x19
+ 410 006d 11       		.uleb128 0x11
+ 411 006e 01       		.uleb128 0x1
+ 412 006f 12       		.uleb128 0x12
+ 413 0070 06       		.uleb128 0x6
+ 414 0071 40       		.uleb128 0x40
+ 415 0072 18       		.uleb128 0x18
+ 416 0073 9742     		.uleb128 0x2117
+ 417 0075 19       		.uleb128 0x19
+ 418 0076 01       		.uleb128 0x1
+ 419 0077 13       		.uleb128 0x13
+ 420 0078 00       		.byte	0
+ 421 0079 00       		.byte	0
+ 422 007a 08       		.uleb128 0x8
+ 423 007b 898201   		.uleb128 0x4109
+ 424 007e 01       		.byte	0x1
+ 425 007f 11       		.uleb128 0x11
+ 426 0080 01       		.uleb128 0x1
+ 427 0081 31       		.uleb128 0x31
+ 428 0082 13       		.uleb128 0x13
+ 429 0083 01       		.uleb128 0x1
+ 430 0084 13       		.uleb128 0x13
+ 431 0085 00       		.byte	0
+ 432 0086 00       		.byte	0
+ 433 0087 09       		.uleb128 0x9
+ 434 0088 8A8201   		.uleb128 0x410a
+ 435 008b 00       		.byte	0
+ 436 008c 02       		.uleb128 0x2
+ 437 008d 18       		.uleb128 0x18
+ 438 008e 9142     		.uleb128 0x2111
+ 439 0090 18       		.uleb128 0x18
+ 440 0091 00       		.byte	0
+ 441 0092 00       		.byte	0
+ 442 0093 0A       		.uleb128 0xa
+ 443 0094 34       		.uleb128 0x34
+ 444 0095 00       		.byte	0
+ 445 0096 03       		.uleb128 0x3
+ 446 0097 0E       		.uleb128 0xe
+ 447 0098 3A       		.uleb128 0x3a
+ 448 0099 0B       		.uleb128 0xb
+ 449 009a 3B       		.uleb128 0x3b
+ 450 009b 0B       		.uleb128 0xb
+ 451 009c 49       		.uleb128 0x49
+ 452 009d 13       		.uleb128 0x13
+ 453 009e 3F       		.uleb128 0x3f
+ 454 009f 19       		.uleb128 0x19
+ 455 00a0 02       		.uleb128 0x2
+ 456 00a1 18       		.uleb128 0x18
+ 457 00a2 00       		.byte	0
+ 458 00a3 00       		.byte	0
+ 459 00a4 0B       		.uleb128 0xb
+ 460 00a5 2E       		.uleb128 0x2e
+ 461 00a6 00       		.byte	0
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 10
+
+
+ 462 00a7 3F       		.uleb128 0x3f
+ 463 00a8 19       		.uleb128 0x19
+ 464 00a9 3C       		.uleb128 0x3c
+ 465 00aa 19       		.uleb128 0x19
+ 466 00ab 6E       		.uleb128 0x6e
+ 467 00ac 0E       		.uleb128 0xe
+ 468 00ad 03       		.uleb128 0x3
+ 469 00ae 0E       		.uleb128 0xe
+ 470 00af 3A       		.uleb128 0x3a
+ 471 00b0 0B       		.uleb128 0xb
+ 472 00b1 3B       		.uleb128 0x3b
+ 473 00b2 0B       		.uleb128 0xb
+ 474 00b3 00       		.byte	0
+ 475 00b4 00       		.byte	0
+ 476 00b5 00       		.byte	0
+ 477              		.section	.debug_aranges,"",%progbits
+ 478 0000 24000000 		.4byte	0x24
+ 479 0004 0200     		.2byte	0x2
+ 480 0006 00000000 		.4byte	.Ldebug_info0
+ 481 000a 04       		.byte	0x4
+ 482 000b 00       		.byte	0
+ 483 000c 0000     		.2byte	0
+ 484 000e 0000     		.2byte	0
+ 485 0010 00000000 		.4byte	.LFB35
+ 486 0014 14000000 		.4byte	.LFE35-.LFB35
+ 487 0018 00000000 		.4byte	.LFB34
+ 488 001c 3C000000 		.4byte	.LFE34-.LFB34
+ 489 0020 00000000 		.4byte	0
+ 490 0024 00000000 		.4byte	0
+ 491              		.section	.debug_ranges,"",%progbits
+ 492              	.Ldebug_ranges0:
+ 493 0000 00000000 		.4byte	.LFB35
+ 494 0004 14000000 		.4byte	.LFE35
+ 495 0008 00000000 		.4byte	.LFB34
+ 496 000c 3C000000 		.4byte	.LFE34
+ 497 0010 00000000 		.4byte	0
+ 498 0014 00000000 		.4byte	0
+ 499              		.section	.debug_line,"",%progbits
+ 500              	.Ldebug_line0:
+ 501 0000 9B000000 		.section	.debug_str,"MS",%progbits,1
+ 501      02006D00 
+ 501      00000201 
+ 501      FB0E0D00 
+ 501      01010101 
+ 502              	.LASF6:
+ 503 0000 6C6F6E67 		.ascii	"long long int\000"
+ 503      206C6F6E 
+ 503      6720696E 
+ 503      7400
+ 504              	.LASF8:
+ 505 000e 756E7369 		.ascii	"unsigned int\000"
+ 505      676E6564 
+ 505      20696E74 
+ 505      00
+ 506              	.LASF21:
+ 507 001b 6D61696E 		.ascii	"main.c\000"
+ 507      2E6300
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 11
+
+
+ 508              	.LASF17:
+ 509 0022 5357325F 		.ascii	"SW2_Read\000"
+ 509      52656164 
+ 509      00
+ 510              	.LASF25:
+ 511 002b 6D61696E 		.ascii	"main\000"
+ 511      00
+ 512              	.LASF16:
+ 513 0030 43794465 		.ascii	"CyDelayUs\000"
+ 513      6C617955 
+ 513      7300
+ 514              	.LASF24:
+ 515 003a 4B45595F 		.ascii	"KEY_ISR_Function\000"
+ 515      4953525F 
+ 515      46756E63 
+ 515      74696F6E 
+ 515      00
+ 516              	.LASF23:
+ 517 004b 75696E74 		.ascii	"uint8\000"
+ 517      3800
+ 518              	.LASF5:
+ 519 0051 6C6F6E67 		.ascii	"long unsigned int\000"
+ 519      20756E73 
+ 519      69676E65 
+ 519      6420696E 
+ 519      7400
+ 520              	.LASF7:
+ 521 0063 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 521      206C6F6E 
+ 521      6720756E 
+ 521      7369676E 
+ 521      65642069 
+ 522              	.LASF9:
+ 523 007a 666C6F61 		.ascii	"float\000"
+ 523      7400
+ 524              	.LASF14:
+ 525 0080 5357325F 		.ascii	"SW2_ClearInterrupt\000"
+ 525      436C6561 
+ 525      72496E74 
+ 525      65727275 
+ 525      707400
+ 526              	.LASF18:
+ 527 0093 4C45445F 		.ascii	"LED_R_Read\000"
+ 527      525F5265 
+ 527      616400
+ 528              	.LASF1:
+ 529 009e 756E7369 		.ascii	"unsigned char\000"
+ 529      676E6564 
+ 529      20636861 
+ 529      7200
+ 530              	.LASF11:
+ 531 00ac 63686172 		.ascii	"char\000"
+ 531      00
+ 532              	.LASF4:
+ 533 00b1 6C6F6E67 		.ascii	"long int\000"
+ 533      20696E74 
+ 533      00
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 12
+
+
+ 534              	.LASF10:
+ 535 00ba 646F7562 		.ascii	"double\000"
+ 535      6C6500
+ 536              	.LASF20:
+ 537 00c1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 537      43313120 
+ 537      352E342E 
+ 537      31203230 
+ 537      31363036 
+ 538 00f4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 538      20726576 
+ 538      6973696F 
+ 538      6E203233 
+ 538      37373135 
+ 539 0127 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 539      66756E63 
+ 539      74696F6E 
+ 539      2D736563 
+ 539      74696F6E 
+ 540              	.LASF3:
+ 541 014f 73686F72 		.ascii	"short unsigned int\000"
+ 541      7420756E 
+ 541      7369676E 
+ 541      65642069 
+ 541      6E7400
+ 542              	.LASF0:
+ 543 0162 7369676E 		.ascii	"signed char\000"
+ 543      65642063 
+ 543      68617200 
+ 544              	.LASF22:
+ 545 016e 443A5C50 		.ascii	"D:\\Projects\\PSoC\\Workspace01\\Key_Interrupt.cyds"
+ 545      726F6A65 
+ 545      6374735C 
+ 545      50536F43 
+ 545      5C576F72 
+ 546 019d 6E00     		.ascii	"n\000"
+ 547              	.LASF13:
+ 548 019f 6C6F6E67 		.ascii	"long double\000"
+ 548      20646F75 
+ 548      626C6500 
+ 549              	.LASF15:
+ 550 01ab 4B45595F 		.ascii	"KEY_ISR_StartEx\000"
+ 550      4953525F 
+ 550      53746172 
+ 550      74457800 
+ 551              	.LASF2:
+ 552 01bb 73686F72 		.ascii	"short int\000"
+ 552      7420696E 
+ 552      7400
+ 553              	.LASF19:
+ 554 01c5 4C45445F 		.ascii	"LED_R_Write\000"
+ 554      525F5772 
+ 554      69746500 
+ 555              	.LASF26:
+ 556 01d1 666C6167 		.ascii	"flag\000"
+ 556      00
+ 557              	.LASF12:
+ARM GAS  C:\Users\User\AppData\Local\Temp\ccuMFHPA.s 			page 13
+
+
+ 558 01d6 73697A65 		.ascii	"sizetype\000"
+ 558      74797065 
+ 558      00
+ 559              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
