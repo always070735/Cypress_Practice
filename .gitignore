@@ -52,9 +52,9 @@ Mkfile.old
 dkms.conf
 
 #Cypress
-/codegentemp/*
-/CortexM0/*
-/Export/*
+codegentemp/
+CortexM0/
+Export/
 *.cycdx
 *.cyfit
 *.LucasChen
